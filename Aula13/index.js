@@ -22,4 +22,7 @@ console.log(outraString.split(' ', 2))
 console.log(outraString.toLocaleLowerCase())
 console.log(outraString.toLocaleUpperCase())
 
+console.log(umaString.indexOf('texto', 2));
 
+console.log(umaString.lastIndexOf('texto'));
+console.log(umaString.match(/[a-z]/g))
