@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+.valorincorreto{
+    background-color: red;
+    color: white;
+    width: 150px;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+.valorcorreto{
+    background-color: blue;
+    color: white;
+    width: 150px;
+    text-align: center;
+    margin: 20px;
+    padding: 20px;
+}

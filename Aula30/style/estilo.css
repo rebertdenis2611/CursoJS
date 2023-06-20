@@ -1,0 +1,12 @@
+body{
+    background-color: darkblue;
+}
+p{
+    background-color: white;
+    padding-top: 5px;
+    height: 100px;
+    border-radius: 10px;
+    display: block;
+    text-align: center;
+    font-size: 1.6em;
+}
