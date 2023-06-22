@@ -4,12 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LOGIN</title>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <h1>Calculadora interativa.</h1>
-    <button id="botao">CLIQUE PARA INICIAR</button>
-    <p></p>
+    <div id="teladelogin">
+        <label for="login" class="label">Login: </label>
+        <p>
+            <input type="text" name="login" id="login" placeholder="E-mail / Código / Cpf" maxlength="30">
+        </p>
+        <label for="senha" class="label">Senha: </label>
+        <p>
+            <input type="password" name="senha" id="senha" placeholder="Senha de 8 digitos" maxlength="8">
+        </p>
+        <button id="entrar">ENTRAR</button>
+        <p id="avisos"></p>
+    </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
