@@ -5,12 +5,6 @@
     margin: 0px;
 }
 
-body{
-    background-image: url(images.jpeg);
-    background-repeat: no-repeat;
-    background-size: 100%;
-}
-
 div{
     padding: 10px;
     margin: 10px;
@@ -18,7 +12,11 @@ div{
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgb(0, 140, 255);
+    background-color: rgb(69, 93, 228);
+}
+
+body{
+    background-color: blueviolet;
 }
 
 input{
