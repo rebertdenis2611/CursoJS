@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1 id="boasvindas"></h1>
-    <div>
+    <div id="cadastro-empresa">
             <label for="nome">Nome: </label>
         <p>
             <input type="text" name="nome" id="nome">
@@ -25,6 +25,26 @@
             <label for="numero">Número: </label>
         <p>
             <input type="number" name="numero" id="numero">
+        </p>
+        
+        <label for="estado">Estado: </label>
+        <p>
+            <select name="estado" id="estado">
+                <option value="pe">Pernambuco</option>
+                <option value="pb" selected>Paraiba</option>
+            </select>
+        </p>
+        
+        <label for="cidade">Cidade: </label>
+        <p>
+            <select name="cidade" id="cidade" required>
+                <option value="camaragibe">Camaragibe</option>
+                <option value="recife" selected>Recife</option>
+            </select>
+        </p>
+        <p>
+            <label for="faturamento">Faturamento: </label>
+            <input type="text" name="faturamento" id="faturamento" placeholder="em reais">
         </p>
     </div>
     <script src="main.js"></script>

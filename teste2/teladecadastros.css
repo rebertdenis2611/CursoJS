@@ -3,9 +3,22 @@
     margin: 0px;
 }
 
-
-
 input{
     border-radius: 10px;
     border-color: rgb(0, 140, 255);
+    padding: 5px;
+}
+
+#cadastro-empresa{
+    padding: 5px;
+    background-color: aqua;
+    width: 30%;
+}
+
+#cadastro-empresa p{
+    padding: 2px;
+}
+
+#cadastro-empresa label{
+    padding: 5px;
 }
