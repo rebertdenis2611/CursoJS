@@ -8,45 +8,90 @@
     <link rel="stylesheet" href="teladecadastros.css">
 </head>
 <body>
-    <h1 id="boasvindas"></h1>
-    <div id="cadastro-empresa">
-            <label for="nome">Nome: </label>
-        <p>
-            <input type="text" name="nome" id="nome">
-        </p>
-            <label for="cnpj">Cnpj: </label>
-        <p>
-            <input type="text" name="cnpj" id="cnpj">
-        </p>
-            <label for="endereco">Endereço: </label>
-        <p>
-            <input type="text" name="endereco" id="endereco">
-        </p>
-            <label for="numero">Número: </label>
-        <p>
-            <input type="number" name="numero" id="numero">
-        </p>
+    <div id="cadastro">
+        <div id="cadastro-empresa">
+            <h2 class="marcacao-cabecalho">Dados da empresa</h2>
+            <form>
+                <p>
+                    <label for="razao">Razão Social: </label>
+                    <input type="text" name="razao" id="razao">
+                </p>
+                <p>
+                    <label for="fantasia">Fantasia: </label>
+                    <input type="text" name="fantasia" id="fantasia">
+                </p>
+                <p>
+                    <label for="cnpj">Cnpj: </label>
+                    <input type="text" name="cnpj" id="cnpj">
+                </p>
+                <p class="direita">
+                    <label for="enderecoempresa">Endereço: </label>
+                    <input type="text" name="endereco-empresa" id="endereco-empresa">
+                </p>
+                <p class="direita">
+                    <label for="numero-empresa">Número: </label>
+                    <input type="text" name="numero-empresa" id="numero-empresa">
+                </p>
+                <p class="direita">
+                    <label for="telefone-empresa">Telefone: </label>
+                    <input type="text" name="telefone-empresa" id="telefone-empresa">
+                </p>
+        </div>
+        <div id="cadastro-responsavel">
+            <h2 class="marcacao-cabecalho">Dados do respónsavel</h2>
+            <p>
+                <label for="cpf">Cpf: </label>
+                <input type="text" name="cpf" id="cpf">
+            </p>
+            <p>
+                <label for="endereco">Endereço: </label>
+                <input type="text" name="endereco" id="endereco">
+            </p>
+            <p>
+                <label for="numero">Número: </label>
+                <input type="number" name="numero" id="numero">
+            </p>
+                <label for="estado">Estado: </label>
+            <p>
+                <select name="estado" id="estado">
+                    <option value="pe">Pernambuco</option>
+                    <option value="pb" selected>Paraiba</option>
+                </select>
+            </p>
+                <label for="cidade">Cidade: </label>
+            <p>
+                <select name="cidade" id="cidade" required>
+                    <option value="camaragibe">Camaragibe</option>
+                    <option value="recife" selected>Recife</option>
+                </select>
+            </p>
+            <p>
+                <label for="mensalidade">Mensalidade: </label>
+                <input type="text" name="mensalidade" id="mensalidade" placeholder="em reais">
+                </p>
+        </div>
+        <div id="modulos-contratados">
+            <h2 class="marcacao-cabecalho">Modulos contratados</h2>
+            <form>
+                <label for="modulos">MAISPDV</label>
+                <input type="checkbox" name="maispdv" id="maispdv">
         
-        <label for="estado">Estado: </label>
-        <p>
-            <select name="estado" id="estado">
-                <option value="pe">Pernambuco</option>
-                <option value="pb" selected>Paraiba</option>
-            </select>
-        </p>
+                <label for="modulos">Delivery VIP</label>
+                <input type="checkbox" name="delivery-vip" id="delivery-vip">
         
-        <label for="cidade">Cidade: </label>
-        <p>
-            <select name="cidade" id="cidade" required>
-                <option value="camaragibe">Camaragibe</option>
-                <option value="recife" selected>Recife</option>
-            </select>
-        </p>
-        <p>
-            <label for="faturamento">Faturamento: </label>
-            <input type="text" name="faturamento" id="faturamento" placeholder="em reais">
-        </p>
+                <label for="modulos">Ristori</label>
+                <input type="checkbox" name="ristori" id="ristori">
+        
+                <label for="modulos">Linear</label>
+                <input type="checkbox" name="linear" id="linear">
+                
+                <label for="modulos">GPOS</label>
+                <input type="checkbox" name="gpos" id="gpos">
+            </form>
+        </div>
+        <button type="button" id="botao-cadastro">Cadastrar</button>
     </div>
+    
     <script src="main.js"></script>
 </body>
 </html>
