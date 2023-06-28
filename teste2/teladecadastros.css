@@ -3,22 +3,52 @@
     margin: 0px;
 }
 
-input{
-    border-radius: 10px;
+input, select{
+    border-radius: 6px;
     border-color: rgb(0, 140, 255);
-    padding: 5px;
-}
-
-#cadastro-empresa{
-    padding: 5px;
-    background-color: aqua;
-    width: 30%;
-}
-
-#cadastro-empresa p{
     padding: 2px;
+    padding-left: 10px;
+    position: relative;
+    display: block;
 }
 
-#cadastro-empresa label{
-    padding: 5px;
+
+#cadastro{
+    padding: 10px;
+    background-color: rgba(0, 255, 255, 0.116);
+    width: 800px;
+    height: 400px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: black 2px 2px 7px;
+    
+}
+
+#cadastro-responsavel{
+    position: absolute;
+    left: 240px;
+    bottom: 340px;
+    border-left: 1px solid black;
+    padding-left: 25px;
+}
+
+#modulos-contratados{
+    position: absolute;
+    left: 515px;
+    bottom: 440px;
+    border-left: 1px solid black;
+    padding-left: 25px;  
+    display: inline;  
+}
+
+#botao-cadastro{
+    position: relative;
+    left: 380px;
+    top: 70px;
+    padding: 10px;    
+    border-radius: 10px;
+}
+
+#botao-cadastro:hover{
+    background-color: rgb(144, 238, 144);
 }

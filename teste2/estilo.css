@@ -5,20 +5,18 @@
     margin: 0px;
 }
 
-/*div#teladelogin{
+div{
     padding: 10px;
     margin: 10px;
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.514);
-    border-radius: 10px;
+    background-color: rgb(15, 22, 63);
 }
-*/
 
 body{
-    background-color: rgb(188, 152, 224);
+    background-color: blueviolet;
 }
 
 input{
@@ -40,12 +38,6 @@ input{
 
 #entrar{
     padding: 10px;
-}
-
-.empresa{
-    color: white;
-    text-align: center;
-    padding-top: 590px;
 }
 
 .naovalidado{
