@@ -17,12 +17,12 @@ function f2(callback){
     },tempo())
 }
 
-f2(f2callback);
+f2(f2callback)
 
 function f2callback(){
-    f1(f1callback);
-};
+    f1(f1callback)
+}
 
-function f1callback(callback){
+function f1callback(){
     console.log('Olá mundo!')
 }
