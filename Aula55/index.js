@@ -1,14 +1,14 @@
 //IIFE -> Immediately invoked function expression
 
-(function(){
+(function(idade, peso, altura){
     const sobrenome = 'Denis'
-    function escreveNome(nome){
+    function falaNome(nome){
         return nome + ' ' + sobrenome
     }
 
-    function revelaNome(){
-        console.log(escreveNome('Rebert'))
+    function escreveNome(){
+        console.log(falaNome('Rebert'))
     }
-
-    revelaNome()
-})()
+    escreveNome()
+    console.log(idade, peso, altura)
+})(30, 80, 1.60)
