@@ -1,13 +1,14 @@
-function criaPessoa(nome, sobrenome){
-    return{
+function criarPessoa(nome, sobrenome, a, p){
+    return {
         nome,
         sobrenome,
-        fala: function(assunto){
-            console.log(`${this.peso} está ${assunto}`)
+        fala(assunto){
+            return `${nome} está ${assunto}` 
         },
-        peso: 80
-    }
+        altura: a,
+        peso: p
+    };
 }
-
-const p1 = criaPessoa('Rebert', 'Denis');
-console.log(p1.fala('falando sobre js'));
+const p1 = criarPessoa('Rebert', 'Denis', 1.65, 80)
+console.log(p1.fala('falando de js'))
+console.log()
