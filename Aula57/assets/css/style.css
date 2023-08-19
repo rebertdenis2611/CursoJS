@@ -2,13 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
 
 
-*{
-    box-sizing: border-box;
-    outline: 0;
-}
 
 :root{
     --cor1: rgba(13, 106, 134, 0.452);
+    --cor2: rgba(70, 196, 235, 0.452);
 }
 
 body{
@@ -21,35 +18,25 @@ body{
 }
 
 .container{
-    width: 80vh;
-    margin: 50px auto;
+    margin: 50px;
     background-color: white;
     padding: 20px;
-
+    border-radius: 25px;
 }
 
-form input, form label, form button{
-    display: block;
+.display{
     width: 100%;
-    margin-bottom: 10px;
+    text-align: right;
+
 }
 
-form input{
-    font-size: 1.3em;
-    padding: 5px;
+.btn{
+    padding: 15px;
+    width: 80px;
+    font-size: 1em;
 }
 
-form input:focus{
-    border: 1px solid green;
-}
-
-form button{
-    padding: 10px;
-    background-color: white;
-    cursor: pointer;
-}
-
-form button:hover{
-    background-color: aliceblue;
-    border: solid black 1px;
+.btn:hover{
+    background-color: var(--cor2);
+    border: none;
 }

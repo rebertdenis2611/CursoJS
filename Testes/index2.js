@@ -1,4 +1,4 @@
-function criarPessoa(nome, sobrenome, peso, altura){
+function cadastroPessoas(nome, sobrenome,peso, altura, idade, telefone){
     return{
         nome,
         sobrenome,
@@ -10,23 +10,21 @@ function criarPessoa(nome, sobrenome, peso, altura){
         set nomeCompleto(valor){
             valor = valor.split(' ');
             this.nome = valor.shift();
-            this.sobrenome = valor.join(' ');
+            this.sobrenome = valor.join(' ')           
         },
 
-        fala(){
-            return `${nome + ' ' + sobrenome}`
+        get pessoa(){
+            return `Olá! ${this.nome}, você tem ${idade} anos e seu telefone é o ${telefone} `
         },
-        peso,
-        altura,
 
         get imc(){
-            const indice = peso / (altura ** 2)
+            const indice =  peso * (altura ** 2);
             return indice.toFixed(2)
         }
+        
     }
 };
 
-const p1 = criarPessoa('Rebert', 'Denis', 80, 1.64);
-p1.nomeCompleto = 'Ana Karoline Silva'
-console.log(p1.imc);
-console.log(p1.nomeCompleto);
+const pessoa1 = cadastroPessoas('Rebert', 'Denis', 70, 1.56, 28, 81997591943);
+pessoa1.nomeCompleto = 'Ana Karoline de Andrade Silva Além';
+console.log(pessoa1.sobrenome);
