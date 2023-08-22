@@ -27,16 +27,17 @@ body{
 .display{
     width: 100%;
     text-align: right;
+    height: 60px;
 
 }
 
 .btn{
-    padding: 15px;
+    padding: 20px;
     width: 80px;
     font-size: 1em;
 }
 
 .btn:hover{
     background-color: var(--cor2);
-    border: none;
+    border: 1px solid black; 
 }
