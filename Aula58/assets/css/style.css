@@ -1,0 +1,9 @@
+body{
+    background-color: rgb(40, 137, 228);
+}
+
+.container{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}

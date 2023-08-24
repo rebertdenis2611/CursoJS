@@ -1,63 +1,71 @@
-function criaCalculadora(){
-    return{
+function Calculadora(){
+    const display = document.querySelector('.display');
 
-        display: document.querySelector('.display'),
+    this.inicio = () =>{
+        this.botao()
+        this.apertaEnter()
+    };
 
-        inicia(){
-            this.botoes()
-        },
-
-        limpaDisplay(){
-            this.display.value = ' '
-        },
-
-        apagaUmNumero(){
-            this.display.value = this.display.value.slice(0,-1)
-        },
-
-        calculo(){
-            let conta = this.display.value;
-            try{
-                conta = eval(conta)
-                if(!conta){
-                alert('Valor invalido!');
-                return
+    this.apertaEnter = () =>{
+        document.addEventListener('keyup', e =>{
+            if(e.key = 13){
+                this.calculo()
             }
-            this.display.value = conta
-            }catch(e){
-                alert('Valor invalido');
-                return
+        })
+    };
+
+
+    this.limpaDisplay = () =>{
+        display.value = ''
+    };
+
+    this.limpaUmNumero = () =>{
+        display.value = display.value.slice(0, -1)
+    };
+  
+    this.calculo = () =>{
+        let valor = display.value;
+
+        try{
+            valor = eval(valor)
+            if(!valor){
+                alert('Erro de valor')
             }
-            
-        },
-
-        botoes(){
-            document.addEventListener('click', e =>{
-                const el = e.target;
-
-                if(el.classList.contains('btn-num')){
-                    this.btnInsereDisplay(el.innerText)
-                }
-
-                if(el.classList.contains('btn-clear')){
-                    this.limpaDisplay()
-                }
-
-                if(el.classList.contains('btn-del')){
-                    this.apagaUmNumero()
-                }
-
-                if(el.classList.contains('btn-eq')){
-                    this.calculo()
-                }
-            })
-        },
-
-        btnInsereDisplay(valor){
-            this.display.value += valor
+            display.value = valor
+        }catch(e){
+            alert('Erro de valor')
         }
+    };
+
+
+    this.botao = () =>{
+        document.addEventListener('click', (e) =>{
+            let el = e.target;
+
+            if(el.classList.contains('btn-num')){
+                this.btnParaDisplay(el.innerText)
+            }
+
+            if(el.classList.contains('btn-clear')){
+                this.limpaDisplay()
+            }
+
+            if(el.classList.contains('btn-del')){
+                this.limpaUmNumero()
+            }
+
+            if(el.classList.contains('btn-eq')){
+                this.calculo()
+            }
+        })
+    };
+
+    
+    this.btnParaDisplay = (valor) =>{
+        display.value += valor
+        return
     }
 };
 
-const calculadora = criaCalculadora();
-calculadora.inicia();
+const calc = new Calculadora();
+calc.inicio();
