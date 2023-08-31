@@ -1,0 +1,19 @@
+body{
+    background-color: rgb(40, 137, 228);
+}
+
+.container{
+    background-color: rgb(15, 89, 158);
+    border-radius: 10px;
+    width: 300px;
+    padding: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container p{
+    margin: 20px;
+    color: white;
+}
