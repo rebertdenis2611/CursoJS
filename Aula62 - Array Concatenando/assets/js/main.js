@@ -1,4 +1,5 @@
-const numeros = [5, 50, 80, 1, 2, 3, 5, 8, 7, 11, 15, 22, 27];
-let menor = []
-
-for(let x = 0; numeros)
+const num1 = [1,2,3]
+const num2 = [5,6,7]
+const junt = num1.concat(num2)  //assim
+//const junt = [...num1, ...num2] //ou assim
+console.log(junt);
