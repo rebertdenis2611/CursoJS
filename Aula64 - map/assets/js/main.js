@@ -1,26 +1,18 @@
-const numeros = [1,2,3,4,55,65,18,20,18];
-//const numeros2 = numeros.map(valor => valor * 2)
-//console.log(numeros2)
-
-
-// Retorne apenas uma string com o nome da pessoa
-// remova apenas a chave "nome" do objeto
-// adicione uma chave id em cada objeto
+//const numeros = [1,6,9,78,5,32,5,9,6,87,21]
+//const numerosAoQuadrado = numeros.map(valor => valor * 2)
+//console.log(numerosAoQuadrado);
 
 const pessoas = [
-    {nome: 'Rebert' , idade: 28},
-    {nome: 'Karoline' , idade: 23},
-    {nome: 'Alice' , idade: 1},
-    {nome: 'Maria' , idade: 23}
+    {nome: 'Rebert', idade: 18},
+    {nome: 'Karoline', idade: 18},
+    {nome: 'Rebert', idade: 18},
+    {nome: 'Rebert', idade: 18},
+    {nome: 'Rebert', idade: 18}
+
 ]
 
-//const apenasNome = pessoas.map(obj => obj.nome)
-//const apenasIdade = pessoas.map(obj => ({idade: obj.idade}))
-const chaveId = pessoas.map(function(obj, indice){
-   const newObj = {... obj};
-   newObj.id = indice
-   return newObj
+const pessoasFiltradas = pessoas.map(function(obj){
+    delete obj.nome;
+    return obj
 })
-
-console.log(chaveId);
-console.log(pessoas);
+console.log(pessoasFiltradas)
