@@ -1,30 +1,25 @@
-function cadastroPessoas(nome, sobrenome,peso, altura, idade, telefone){
-    return{
-        nome,
-        sobrenome,
-
-        get nomeCompleto(){
-            return `${this.nome} ${this.sobrenome}`
-        },
-
-        set nomeCompleto(valor){
-            valor = valor.split(' ');
-            this.nome = valor.shift();
-            this.sobrenome = valor.join(' ')           
-        },
-
-        get pessoa(){
-            return `Olá! ${this.nome}, você tem ${idade} anos e seu telefone é o ${telefone} `
-        },
-
-        get imc(){
-            const indice =  peso * (altura ** 2);
-            return indice.toFixed(2)
-        }
-        
-    }
+function gerarNumeros(){
+    return (Math.random() * ((100 - 1) + 1)).toFixed(0)
 };
 
-const pessoa1 = cadastroPessoas('Rebert', 'Denis', 70, 1.56, 28, 81997591943);
-pessoa1.nomeCompleto = 'Ana Karoline de Andrade Silva Além';
-console.log(pessoa1.sobrenome);
+function preencherArray(){
+    let numeros = [];
+    for(let x = 0; x < 30; x++){
+        numeros.push(gerarNumeros())
+    }
+    return numeros
+};
+
+function somaDosPrimos(){
+    const soma = preencherArray().reduce(function(acumulador, valor){
+        if(valor / 1 === valor && valor / valor === 1){
+            return acumulador += valor
+        }
+        console.log(acumulador)
+    },0)
+    return soma
+}
+
+console.log(gerarNumeros());
+console.log(preencherArray());
+console.log(somaDosPrimos());
