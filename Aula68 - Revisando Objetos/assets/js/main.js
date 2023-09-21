@@ -14,3 +14,12 @@
 //    console.log(pessoa1[chave])
 //}
 
+function Pessoa(nome, sobrenome){
+    this.nome = nome,
+    this.sobrenome = sobrenome
+    Object.freeze(this)
+}
+
+const p1 = new Pessoa('Rebert', 'Denis')
+delete p1.nome
+console.log(p1)
