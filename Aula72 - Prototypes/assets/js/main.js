@@ -8,5 +8,7 @@ Pessoa.prototype.nomeCompleto = function(){
 };
 
 const p1 = new Pessoa('Rebert', 'Denis');
+const data = new Date();
 
-console.log(p1.prototype)
+console.log(p1)
+console.dir(data)
