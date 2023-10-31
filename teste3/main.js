@@ -1,7 +1,11 @@
-let nome = prompt('Digite apenas 3 caracteres')
+let nome = 'Rebert'
 
-if(nome.length == 3){
-    alert('Acertou')
-}else{
-    alert('Errado digite apenas 3 caracteres');
-};
+let creatPet = function(nome){
+    return{
+        setNome: function(nome){
+            this.nome = nome;
+        }
+    }
+}
+
+console.log(creatPet().setNome())
