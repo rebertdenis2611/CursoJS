@@ -1,11 +1,5 @@
-let nome = 'Rebert'
-
-let creatPet = function(nome){
-    return{
-        setNome: function(nome){
-            this.nome = nome;
-        }
-    }
+function multiplicar(a = 1){ 
+    console.log(typeof a)
 }
 
-console.log(creatPet().setNome())
+multiplicar(null)
