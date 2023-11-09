@@ -1,7 +1,10 @@
-let nome = prompt('Digite apenas 3 caracteres')
+let qtdNomes =  prompt('Quantas pessoas você vai cadastrar? ')
+let pessoas = []
 
-if(nome.length == 3){
-    alert('Acertou')
-}else{
-    alert('Errado digite apenas 3 caracteres');
+
+for(let x = 0; x < qtdNomes; x++){
+    let nomes = prompt(`Digite o nome da ${x} pessoa`);
+    pessoas.push(nomes)
 };
+
+console.log(pessoas)
