@@ -1,20 +1,21 @@
-function Produto(nome, preco, estoque){
+function Pessoa(nome, idade, cpf){
     this.nome = nome;
-    this.preco = preco;
-    Object.defineProperty(this, 'estoque',{
+    this.idade = idade;
+    Object.defineProperty(this, 'cpf',{
         enumerable: true,
-        configurable: true,
+        configurable: false,
         get: function(){
-            return estoque
+            return cpf
         },
-        set: function(valor){
-            estoque = valor;
+        set: function(novoCpf){
+            if(typeof novoCpf !== 'number') throw new TypeError(alert('CPF INFALIDO'))
+            cpf = novoCpf
         }
-
     })
-    
 }
 
-const p1 = new Produto('Camisa', 19.99);
-p1.estoque = 50
-console.log(p1)
+const p1 = new Pessoa()
+p1.nome = 'Rebert'
+p1.idade = 26
+p1.cpf = 104
+console.log(p1.cpf)
