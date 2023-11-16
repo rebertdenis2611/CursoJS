@@ -1,6 +1,4 @@
-//const cpf = document.querySelector('.cpf');
-//const validar = document.querySelector('.validar');
-//const mensagem = document.querySelector('.mensagem');
+//REFAZER DEPOIS USANDO O FUNCTION FACTORY
 
 let cpf = '10498988422'
 let cpfLimpo = cpf.replace(/\D+/g, '');  //Expressão REGULAR, deixa apenas o que é number
