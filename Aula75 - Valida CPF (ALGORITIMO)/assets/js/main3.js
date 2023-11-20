@@ -15,14 +15,12 @@ function validaCpf(cpf){
 
         gerarDigito(){
             const cpfArray = Array.from(this.filtrarCpf())
-            let regresso = cpfArray.length -1
-            console.log(cpfArray) //funcionou
-            cpfArray.reduce((ac, valor) => {
-                ac += (regresso * Number(valor));
+            let regresso = cpfArray.length - 1
+            let total = cpfArray.reduce((ac, valor) =>{
+                ac =+ regresso * valor;
                 regresso--;
                 return ac
-            },0)
-            
+            },0)           
         },
         
         mostrarMensagem(){
