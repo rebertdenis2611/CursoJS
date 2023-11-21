@@ -3,7 +3,7 @@ function validaCpf(cpf){
         filtrarCpf(){
             this.cpfLimpo = cpf.replace(/\D+/g, '');
             this.cpfFiltrado = this.cpfLimpo.slice(0,-2);
-            return this.cpfLimpo
+            return this.cpfFiltrado
         },
 
         verificaCpf(){
@@ -15,12 +15,15 @@ function validaCpf(cpf){
 
         gerarDigito(){
             const cpfArray = Array.from(this.filtrarCpf())
-            let regresso = cpfArray.length - 1
+            let regresso = cpfArray.length + 2
             let total = cpfArray.reduce((ac, valor) =>{
-                ac =+ regresso * valor;
                 regresso--;
+                ac += regresso * valor;
                 return ac
-            },0)           
+            },0)         
+
+            let digito = (total * 10) % 11
+            return digito > 9 ? '0' : String(digito)
         },
         
         mostrarMensagem(){
@@ -34,4 +37,4 @@ function validaCpf(cpf){
 };
 
 const confereCpf = validaCpf('104.989.884-22');
-console.log(confereCpf.gerarDigito())
+console.log(confereCpf.verificaCpf())
