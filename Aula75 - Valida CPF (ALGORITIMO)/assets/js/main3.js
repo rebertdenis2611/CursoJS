@@ -2,19 +2,18 @@ function validaCpf(cpf){
     return{
         filtrarCpf(){
             this.cpfLimpo = cpf.replace(/\D+/g, '');
-            this.cpfFiltrado = this.cpfLimpo.slice(0,-2);
-            return this.cpfFiltrado
+            return this.cpfLimpo
         },
 
-        verificaCpf(){
+        verificaCpf(digito){
             if(this.filtrarCpf().length !== 11) return false
             if(typeof this.filtrarCpf() === 'undefined') return false
-            
             return true
         },
 
         gerarDigito(){
-            const cpfArray = Array.from(this.filtrarCpf())
+            const cpfFiltrado = this.cpfLimpo.slice(0,-2);
+            const cpfArray = Array.from(cpfFiltrado)
             let regresso = cpfArray.length + 2
             let total = cpfArray.reduce((ac, valor) =>{
                 regresso--;
@@ -38,3 +37,4 @@ function validaCpf(cpf){
 
 const confereCpf = validaCpf('104.989.884-22');
 console.log(confereCpf.verificaCpf())
+console.log(confereCpf.gerarDigito())
