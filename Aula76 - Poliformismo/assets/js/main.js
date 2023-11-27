@@ -6,11 +6,11 @@ function Conta(agencia, conta, saldo){
 
 Conta.prototype.sacar = function(valor){
     if(valor > this.saldo){
-        console.log('Saldo insuficiente!')
+        console.log('Não é possível fazer retirada o saldo é insuficiente!')
+    }else{
+        this.saldo -= valor;
         this.mostraSaldo()
     }
-    this.saldo -= valor;
-    this.mostraSaldo()
 };
 
 Conta.prototype.depositar = function(valor){
@@ -37,7 +37,7 @@ CC.prototype.sacar = function(valor){
         console.log('Saldo Insuficiente!')
         this.mostraSaldo()
     }else{
-        this.saldo -= valor;
+        this.saldo = this.limite - valor;
         this.mostraSaldo()
     }
     
@@ -46,7 +46,13 @@ CC.prototype.sacar = function(valor){
 function CP(agencia, conta, saldo){
     Conta.call(this, agencia, conta, saldo)
 }
+CP.prototype = Object.create(Conta.prototype);
+CP.prototype.constructor = CP.prototype;
 
-const contaCC = new CC(9246, 193990, 0, 100)
+//const contaCC = new CC(9246, 193990, 0, 100)
 //contaCC.depositar(500)
-contaCC.sacar(99)
+//contaCC.sacar(99)
+
+const contaCP = new CP(9246, 193990, 10)
+//contaCC.depositar(500)
+contaCP.sacar(5)
