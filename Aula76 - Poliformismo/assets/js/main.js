@@ -7,9 +7,11 @@ function Conta(agencia, conta, saldo){
 Conta.prototype.sacar = function(valor){
     if(valor <= this.saldo){
         this.saldo -= valor;
-        this.verSaldo()
+    }else{
+        console.log('Saldo Insuficiente')
         return
     };
+
     this.verSaldo()
 };
 Conta.prototype.depositar = function(valor){
@@ -20,5 +22,5 @@ Conta.prototype.verSaldo = function(){
     console.log(`Agencia/Conta: ${this.agencia} | ${this.conta} | Saldo: ${this.saldo}`)
 };
 
-const conta1 = new Conta(9246, 193990, 100)
-conta1.sacar(150)
+const conta1 = new Conta(9246, 193990, 2)
+conta1.sacar(0.99)
