@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+.dadosCadastrais{
+    background-color: blue;
+    color: white;
+    padding: 20px;
+}
+
+.dadosCadastrais p{
+    margin: 2px;
+}
+
