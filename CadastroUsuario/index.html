@@ -6,36 +6,25 @@
     <title>Cadastro de Usúario</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="pagina-principal">
     <header>
-        <h1 class="nomeUsuario"></h1>
+        <h1 class="boasvindas"></h1>
     </header>
-    
-    <section class="dadosCadastrais" id="dadosEmpresa">
-        <h2>Dados Empresa</h2>
 
-    <p>
-        <label for="razaoSocial">Razão Social</label>
-    </p>
-        <input type="text" name="razaoSocial" id="razaoSocial">  
-
-    <p>
-        <label for="nomeFantasia">Nome Fantasia</label>
-    </p>
-        <input type="text" name="nomeFantasia" id="nomeFantasia">
-        
-    <p>
-        <label for="cnpj">Cnpj</label>
-    </p>    
-        <input type="text" name="cnpj" id="cnpj">
-
-    <p>
-        <label for="endereco">Endereço</label>
-    </p>
-        <input type="text" name="endereco" id="endereco">
+    <section class="tela-login">
+        <section>
+            <label for="nome">Nome: </label>
+            <input type="text" class="nome" id="input">
+        </section>
+        <section>
+            <label for="senha">Senha: </label>
+            <input type="text" class="senha" id="input">
+        </section>
     </section>
-        
-    <script src="assets/js/main.js"></script>
     
+    <p class="mensagem"></p>
+    <input type="button" value="SALVAR" class="salvar">
+
+    <script src="assets/js/main.js"></script>  
 </body>
 </html>
