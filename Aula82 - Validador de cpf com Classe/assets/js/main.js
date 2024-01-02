@@ -4,36 +4,68 @@ class ValidarCpf{
     }
 
     tratarCpf(){
-        return this.cpf.replace(/\D+/g, '');
+        const cpfLimpo = this.cpf.replace(/\D+/g, '');
+        const novoCpf = cpfLimpo.slice(0, -2);
+        return novoCpf
     }
 
-    gerarDigito(){
-        const cpfNoveDigito = this.tratarCpf().slice(0, -2);
+    primeiraVerificacao(){
+        const cpfNoveDigito = this.tratarCpf();
         const cpfArray = Array.from(cpfNoveDigito)
         let regressivo = cpfNoveDigito.length+1;
-
         let totalCpf = cpfArray.reduce(function(ac, valor){
             ac += valor * regressivo
             regressivo--
             return ac
         },0)
-        return totalCpf;
+        return totalCpf
     }   
 
-    primeiraValidacao(){
-        let primeiroDigito = (this.gerarDigito() * 10) % 11;
-        if(primeiroDigito === 10){
-            primeiroDigito === 0
+    primeiroDigito(){
+        let digito = this.primeiraVerificacao() * 10 % 11
+        if(digito === 10){
+            digito = 0 
         }else{
-            (this.gerarDigito() * 10) % 11
+            return digito
         }
-        return primeiroDigito;
+        return digito
     }
-    escrever(){
-        console.log(this.primeiraValidacao())
+
+    segundaVerificacao(){
+        const cpfNoveDigito = this.tratarCpf();
+        const cpfArray = Array.from(cpfNoveDigito + this.primeiroDigito())  
+        let regressivo = cpfArray.length + 1;
+        let totalCpf = cpfArray.reduce(function(ac, valor){
+            ac += valor * regressivo
+            regressivo--
+            return ac
+        },0)
+        return totalCpf
     }
-    
+
+    segundoDigito(){
+        let digito = this.segundaVerificacao() * 10 % 11
+        if(digito === 10){
+            digito = 0 
+        }else{
+            return digito
+        }
+        return digito
+    }
+
+    novoCpf(){
+        return this.tratarCpf() + this.primeiroDigito() + this.segundoDigito()
+    }
+
+    validarCpf(){
+        if(this.novoCpf() === this.cpf){
+            console.log('CPF VALIDADO')
+        }else{
+            console.log('CPF INVALIDO')
+        }
+    }
+
 }
 
-const p1 = new ValidarCpf('150.224.694-00');
-console.log(p1.escrever())
+const p1 = new ValidarCpf('');
+console.log(p1.validarCpf())
