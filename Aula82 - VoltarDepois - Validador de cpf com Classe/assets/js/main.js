@@ -58,14 +58,11 @@ class ValidarCpf{
     }
 
     validarCpf(){
-        if(this.novoCpf() === this.cpf){
-            console.log('CPF VALIDADO')
-        }else{
-            console.log('CPF INVALIDO')
-        }
+        if(this.novoCpf() === this.tratarCpf()) return true
+        if(typeof this.cpfLimpo !== String) return false
     }
 
 }
 
-const p1 = new ValidarCpf('');
+const p1 = new ValidarCpf('11111111111');
 console.log(p1.validarCpf())
