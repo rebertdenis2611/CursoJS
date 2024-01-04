@@ -58,11 +58,11 @@ class ValidarCpf{
     }
 
     validarCpf(){
-        if(this.novoCpf() === this.tratarCpf()) return true
+        if(this.tratarCpf() === this.cpf) return true
         if(typeof this.cpfLimpo !== String) return false
     }
 
 }
 
-const p1 = new ValidarCpf('11111111111');
+const p1 = new ValidarCpf('104.989.884-22');
 console.log(p1.validarCpf())

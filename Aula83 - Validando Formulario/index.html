@@ -20,16 +20,27 @@
         <form class="formulario">
             <label for="nome">Nome</label>
             <input type="text" class="nome">
+            <span class="men-nome"></span>
+            
             <label for="sobrenome">Sobrenome</label>
             <input type="text" class="sobrenome">
+      
+
             <label for="cpf">CPF</label>
             <input type="text" class="cpf">
+
             <label for="usuario">Usuário</label>
-            <input type="text" class="usuario">
+            <input type="text" class="usuario" minlength="3" maxlength="12">
+            <span class="men-user"></span>
+
             <label for="senha">Senha</label>
-            <input type="text" class="senha">
+            <input type="text" class="senha" minlength="6" maxlength="12">
+      
+
             <label for="repetir_senha">Repetir Senha</label>
             <input type="text" class="repetir_senha">
+      
+
             <button type="submit">Enviar</button>
         </form>
     </section>
