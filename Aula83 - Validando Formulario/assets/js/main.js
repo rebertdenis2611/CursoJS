@@ -4,7 +4,7 @@ class validaFormulario{
         this.sobrenome = document.querySelector('.sobrenome');
         this.usuario = document.querySelector('.usuario');
         this.senha = document.querySelector('.senha');
-        this.repetirSenha = document.querySelector('.repertir_senha');
+        this.repetirSenha = document.querySelector('.repetir-senha');
         this.todosCampos = document.querySelectorAll('input')
         this.mensagem = document.querySelector('.mensagem')
         this.executar();
@@ -16,6 +16,7 @@ class validaFormulario{
             //this.verificarCamposSemInformacao();
             this.validacaoUsuario();
             this.validaSenha();
+            this.validaRepeteSenha();
         })
     }
 
@@ -44,8 +45,9 @@ class validaFormulario{
             menUser.innerHTML = 'Usuário não pode ser em branco!'
             menUser.className += ' error-text'
         }else{
-            menUser.className += ' men-user'
             menUser.innerHTML = ''
+            menUser.removeAttribute = 'error-text'
+            menUser.className = 'men-user'
         }
     }
 
@@ -55,8 +57,21 @@ class validaFormulario{
             menSenha.className += ' error-text';
             menSenha.innerHTML = 'Senha fora dos caracteres informados!';
         }else{
-            menSenha.className += 'men-senha';
-            menSenha.innerHTML += ''
+            menSenha.innerHTML = ''
+            menSenha.removeAttribute = 'error-text'
+            menSenha.className = 'men-senha';
+        }
+    }
+
+    validaRepeteSenha(){
+        let menRepeteSenha = document.querySelector('.men-rep-senha')
+        if(this.repetirSenha.value !== this.senha.value || this.repetirSenha.value === ''){
+            menRepeteSenha.className += ' error-text';
+            menRepeteSenha.innerHTML = 'Senha não é igual a digitada ou está zerada!';
+        }else{
+            menRepeteSenha.innerHTML = ''
+            menRepeteSenha.removeAttribute = 'error-text'
+            menRepeteSenha.className = 'men-rep-senha';
         }
     }
 }
@@ -66,7 +81,10 @@ const validacao = new validaFormulario();
 class ValidarCpf{
     constructor(){
         this.cpf = document.querySelector('.cpf');
+        this.validacao();
     }
+
+    
 
     tratarCpf(){
         const cpfLimpo = this.cpf.replace(/\D+/g, '');
@@ -123,14 +141,10 @@ class ValidarCpf{
     }
 
     validarCpf(){
-        if(this.tratarCpf() === this.cpf) return true
-        if(typeof this.cpfLimpo !== String) return false
+        
+        if(this.tratarCpf() === this.cpf){
+            let menCpf = document.querySelector('.men-cpf')
+        }
     }
-
 }
-const p1 = new ValidarCpf('104.989.884-22');
-if(p1.validarCpf === true){
-    console.log('CPF FOI VALIDADO')
-}else{
-    console.log('TESTE @')
-}
+const p1 = new ValidarCpf();
