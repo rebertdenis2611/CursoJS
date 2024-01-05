@@ -15,6 +15,7 @@ class validaFormulario{
             e.preventDefault();
             //this.verificarCamposSemInformacao();
             this.validacaoUsuario();
+            this.validaSenha();
         })
     }
 
@@ -37,13 +38,25 @@ class validaFormulario{
 */
     validacaoUsuario(){
         let menUser = document.querySelector('.men-user')
-        menUser.className += ', error-text';
         if(typeof this.usuario.value !== 'string'){
             menUser.innerHTML = 'Usuário deve conter letras e números!'
         }else if(this.usuario.value === ''){
             menUser.innerHTML = 'Usuário não pode ser em branco!'
+            menUser.className += ' error-text'
         }else{
-            menUser.className = 'men-user';
+            menUser.className += ' men-user'
+            menUser.innerHTML = ''
+        }
+    }
+
+    validaSenha(){
+        let menSenha = document.querySelector('.men-senha')
+        if(this.senha.value < 6){    
+            menSenha.className += ' error-text';
+            menSenha.innerHTML = 'Senha fora dos caracteres informados!';
+        }else{
+            menSenha.className += 'men-senha';
+            menSenha.innerHTML += ''
         }
     }
 }
