@@ -1,68 +1,33 @@
 class ValidarCpf{
     constructor(cpf){
         this.cpf = cpf;
+        this.gerarDigito();
     }
 
-    tratarCpf(){
+    cpfLimpo(){
         const cpfLimpo = this.cpf.replace(/\D+/g, '');
-        const novoCpf = cpfLimpo.slice(0, -2);
-        return novoCpf
+        return cpfLimpo
     }
 
-    primeiraVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
-        const cpfArray = Array.from(cpfNoveDigito)
-        let regressivo = cpfNoveDigito.length+1;
-        let totalCpf = cpfArray.reduce(function(ac, valor){
-            ac += valor * regressivo
-            regressivo--
-            return ac
-        },0)
-        return totalCpf
-    }   
+    
+    
+    gerarCpf(){
+        const digito1 = this.gerarDigito()
+    }
 
-    primeiroDigito(){
-        let digito = this.primeiraVerificacao() * 10 % 11
-        if(digito === 10){
-            digito = 0 
-        }else{
-            return digito
+    gerarDigito(valor){
+        let novoCpf = this.cpfLimpo().slice(0, -2);
+        const cpfArray = Array.from(novoCpf);
+        let decrescente = novoCpf.length;
+        let soma = 0;
+        for(let x of cpfArray){             
+            decrescente--
+            soma += decrescente * x
+            console.log(decrescente, x)
         }
-        return digito
-    }
-
-    segundaVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
-        const cpfArray = Array.from(cpfNoveDigito + this.primeiroDigito())  
-        let regressivo = cpfArray.length + 1;
-        let totalCpf = cpfArray.reduce(function(ac, valor){
-            ac += valor * regressivo
-            regressivo--
-            return ac
-        },0)
-        return totalCpf
-    }
-
-    segundoDigito(){
-        let digito = this.segundaVerificacao() * 10 % 11
-        if(digito === 10){
-            digito = 0 
-        }else{
-            return digito
-        }
-        return digito
-    }
-
-    novoCpf(){
-        return this.tratarCpf() + this.primeiroDigito() + this.segundoDigito()
-    }
-
-    validarCpf(){
-        if(this.tratarCpf() === this.cpf) return true
-        if(typeof this.cpfLimpo !== String) return false
+        return soma * 10 /11
     }
 
 }
 
-const p1 = new ValidarCpf('104.989.884-22');
-console.log(p1.validarCpf())
+const p1 = new ValidarCpf('52998224725')
