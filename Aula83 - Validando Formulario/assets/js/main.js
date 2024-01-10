@@ -7,36 +7,53 @@ class validaFormulario{
         this.repetirSenha = document.querySelector('.repetir-senha');
         this.todosCampos = document.querySelectorAll('input')
         this.mensagem = document.querySelector('.mensagem')
+        this.formulario = document.querySelector('.formulario')
         this.executar();
     }
 
     executar(){
         document.addEventListener('submit', e =>{
             e.preventDefault();
-            //this.verificarCamposSemInformacao();
             this.validacaoUsuario();
             this.validaSenha();
             this.validaRepeteSenha();
+            this.camposSaoValidos()
+            this.criarErro();
         })
     }
 
-/*  verificarCamposSemInformacao(){
-        let campoVazio = false;
-        
-        for(let valorCampo of this.todosCampos){
-            if(valorCampo.value === ''){
-                campoVazio = true
+    camposSaoValidos(){
+        for(let campo of document.querySelectorAll('.validar')){
+            const label = campo.previousElementSibling.innerHTML;
+            if(!campo.value){
+                this.criarErro(campo, `Campo ${label} é invalido`)
             }
         }
 
-        if(campoVazio === true){
-            alert('Campos não pode ser zerado')
-        }else{
-            console.log('Cadastro Enviado')
+        for(let errorText of document.querySelectorAll('.error-text')){
+            errorText.remove()
         }
-        
+
+        if(campo.classList.contains('cpf')){
+            if(!this.validaCPF(campo)) valida = false;
+        }
     }
-*/
+
+    validaCPF(){
+        const cpf = new this.validaCPF(cpf.value)
+
+        if(!cpf.valid()){
+            
+        }
+        return true;
+    }
+    criarErro(campo, msg){
+        const div = document.createElement('div');
+        div.innerHTML = msg;
+        div.classList.add('error-text');
+        campo.insertAdjacentElement('afterend', div);
+    }
+
     validacaoUsuario(){
         let menUser = document.querySelector('.men-user')
         if(typeof this.usuario.value !== 'string'){
@@ -77,3 +94,4 @@ class validaFormulario{
 }
 
 const validacao = new validaFormulario();
+
