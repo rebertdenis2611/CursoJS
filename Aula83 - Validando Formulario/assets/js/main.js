@@ -1,17 +1,23 @@
 class validaFormulario{
     constructor(){
         this.formulario = document.querySelector('.formulario');
-        this.envioFormulario();
+        this.eventos();
     }
 
-    envioFormulario(){
+    eventos(){
         document.addEventListener('submit', e =>{
-            this.validarCampos();
-            e.preventDefault();
+            this.envioDeFormulario(e)
         })
     }
 
+    envioDeFormulario(e){
+        e.preventDefault();
+        this.validarCampos();
+        this.validaUsuario();
+    }
+
     validarCampos(){
+        let valid = true
         for(let errorText of this.formulario.querySelectorAll('.error-text')){
             errorText.remove();
         };
@@ -21,8 +27,20 @@ class validaFormulario{
 
             if(!campo.value){
                 this.mensagemErro(campo, `O campo ${label} não pode ser vázio`);
+                this.valid = false
             }
         }
+        return valid
+    }
+
+    validaUsuario(campo){
+        let valid = true;
+        let usuario = this.formulario.querySelector('.usuario')
+        if(usuario.length < 3 || usuario.length > 12){
+            this.mensagemErro(campo, 'Tamanho do usuário não permitido.')
+            valid = false
+        }
+        return valid
     }
 
     mensagemErro(campo, msg){
