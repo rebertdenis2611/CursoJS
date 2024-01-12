@@ -5,16 +5,23 @@ class validaFormulario{
     }
 
     eventos(){
-        document.addEventListener('submit', e =>{
+        this.formulario.addEventListener('submit', e =>{
             this.envioDeFormulario(e)
         })
     }
 
     envioDeFormulario(e){
         e.preventDefault();
-        this.validarCampos();
-        this.validaUsuario();
+        const camposValidos = this.validarCampos();
+        const senhasValidas = this.senhasSaoValidas();
+
+        if(camposValidos && senhasValidas) {
+        alert('Formulário enviado.');
+        this.formulario.submit();
+        }
     }
+
+    
 
     validarCampos(){
         let valid = true
@@ -28,11 +35,15 @@ class validaFormulario{
                 this.mensagemErro(campo, `O campo ${label} não pode ser vázio`);
                 valid = false
             }
-        }
 
-        if(campo.classList.contains('usuario')) {
-            if(!this.validaUsuario(campo)) valid = false;
-          }
+            if(campo.classList.contains('usuario')){
+                if(!this.validaUsuario(campo)) valid = false
+            }
+
+            if(campo.classList.contains('cpf')){
+                if(!this.validaCpf(campo)) valid = false
+            }
+        }
         return valid
     }
 
@@ -43,7 +54,37 @@ class validaFormulario{
             this.mensagemErro(campo, 'Tamanho do usuário não permitido.')
             valid = false
         }
+
+        if(!usuario.match(/^[a-zA-Z0-9]+$/g)) {
+            this.mensagemErro(campo, 'Nome de usuário precisar conter apenas letras e/ou números.');
+            valid = false;
+          }
         return valid
+    }
+
+    validaCpf(campo){
+        const cpf = new ValidarCpf(campo.value)
+
+        if(!cpf.validacao()){
+            this.mensagemErro(campo, 'O cpf é invalido!')
+            return false
+        }
+        return true
+    }
+
+    validaSenhas(){
+        let valid = true
+        const senha = this.formulario.querySelector('.senha')
+        const repetirSenha = this.formulario.querySelector('.repetir-senha')
+        
+
+        if(senha.value !== repetirSenha.value){
+            valida = false;
+            this.mensagemErro(senha, 'Senha não é igual a repetir senha')
+            this.mensagemErro(repetirSenha, 'Senha não é igual a repetir senha')
+        }
+        return valid
+
     }
 
     mensagemErro(campo, msg){

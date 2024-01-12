@@ -1,7 +1,7 @@
 class ValidarCpf{
     constructor(cpf){
         this.cpf = cpf;
-        this.gerarCpf();
+        this.validacao();
     }
 
     cpfTratado(){
@@ -42,6 +42,12 @@ class ValidarCpf{
         return sequencia === this.cpfTratado();
     }
 
+    validacao(){
+        if(this.gerarCpf() === this.cpfTratado()){
+            return true
+        }
+    }
+
 }
 
-const p1 = new ValidarCpf('10498988422')
+const p1 = new ValidarCpf('')
