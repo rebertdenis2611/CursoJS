@@ -31,7 +31,7 @@ class ValidarCpf{
     }
 
     verificaCpfValido(){
-        if(typeof this.cpf === 'undefined') return false
+        if(typeof this.cpf === undefined) return false
         if(!(this.cpfTratado() === this.gerarCpf())) return false
         if(this.issequencia()) return false
         return true
@@ -45,8 +45,3 @@ class ValidarCpf{
 }
 
 const p1 = new ValidarCpf('10498988422')
-if(p1.verificaCpfValido){
-    console.log('CPF VALIDADO')
-}else{
-    console.log('CPF INVALIDO')
-};
