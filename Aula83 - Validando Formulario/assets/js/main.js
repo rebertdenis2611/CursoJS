@@ -17,6 +17,7 @@ class validaFormulario{
             this.validacaoUsuario();
             this.validaSenha();
             this.validaRepeteSenha();
+            
         })
     }
 
@@ -81,21 +82,32 @@ const validacao = new validaFormulario();
 class ValidarCpf{
     constructor(){
         this.cpf = document.querySelector('.cpf');
-        this.validacao();
+        this.executar();
     }
 
-    
+    executar(){
+        document.addEventListener('submit', e =>{
+            e.preventDefault();
+            this.validaCpf()       
+        })
+    }
 
     tratarCpf(){
-        const cpfLimpo = this.cpf.replace(/\D+/g, '');
-        const novoCpf = cpfLimpo.slice(0, -2);
-        return novoCpf
+        let cpfSemTratamento = this.cpf.value;
+        const cpfLimpo = cpfSemTratamento.replace(/\D+/g, '');
+        return cpfLimpo
+    }
+
+    cpfComNoveDigitos(){
+        const cpfOriginal = this.tratarCpf();
+        const cpfNoveDigitos = cpfOriginal.slice(0, -2)
+        return cpfNoveDigitos;
     }
 
     primeiraVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
-        const cpfArray = Array.from(cpfNoveDigito)
-        let regressivo = cpfNoveDigito.length+1;
+        const novoCpf = this.cpfComNoveDigitos()
+        const cpfArray = Array.from(novoCpf)
+        let regressivo = novoCpf.length+1;
         let totalCpf = cpfArray.reduce(function(ac, valor){
             ac += valor * regressivo
             regressivo--
@@ -115,7 +127,7 @@ class ValidarCpf{
     }
 
     segundaVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
+        const cpfNoveDigito = this.cpfComNoveDigitos();
         const cpfArray = Array.from(cpfNoveDigito + this.primeiroDigito())  
         let regressivo = cpfArray.length + 1;
         let totalCpf = cpfArray.reduce(function(ac, valor){
@@ -137,13 +149,22 @@ class ValidarCpf{
     }
 
     novoCpf(){
-        return this.tratarCpf() + this.primeiroDigito() + this.segundoDigito()
+        return this.cpfComNoveDigitos() + this.primeiroDigito() + this.segundoDigito()
     }
 
-    validarCpf(){
-        
-        if(this.tratarCpf() === this.cpf){
-            let menCpf = document.querySelector('.men-cpf')
+    validaCpf(){  
+        let menCpf = document.querySelector('.men-cpf')
+        if(this.cpf.value === ''){
+            menCpf.innerHTML = 'CPF está em branco!'
+            menCpf.className += ' error-text';
+        }
+        else if(this.novoCpf() !== this.tratarCpf()){
+            console.log(this.cpf.value)
+            menCpf.innerHTML = 'CPF não é validoooo!'
+            menCpf.className += ' error-text';
+        }else{
+            menCpf.innerHTML = ''
+            menCpf.className = 'men-cpf';
         }
     }
 }
