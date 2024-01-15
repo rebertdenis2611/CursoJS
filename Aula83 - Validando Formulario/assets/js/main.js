@@ -13,7 +13,7 @@ class validaFormulario{
     envioDeFormulario(e){
         e.preventDefault();
         const camposValidos = this.validarCampos();
-        const senhasValidas = this.senhasSaoValidas();
+        const senhasValidas = this.validaSenhas();
 
         if(camposValidos && senhasValidas) {
         alert('Formulário enviado.');
@@ -21,7 +21,18 @@ class validaFormulario{
         }
     }
 
-    
+    validaSenhas(){
+        let valid = true
+        const senha = this.formulario.querySelector('.senha')
+        const repetirSenha = this.formulario.querySelector('.repetir-senha')
+        
+        if(senha.value !== repetirSenha.value){
+            valid = false;
+            this.mensagemErro(senha, 'Senha não é igual a repetir senha')
+            this.mensagemErro(repetirSenha, 'Repetir Senha não é igual a senha')
+        }
+        return valid
+    }
 
     validarCampos(){
         let valid = true
@@ -70,21 +81,6 @@ class validaFormulario{
             return false
         }
         return true
-    }
-
-    validaSenhas(){
-        let valid = true
-        const senha = this.formulario.querySelector('.senha')
-        const repetirSenha = this.formulario.querySelector('.repetir-senha')
-        
-
-        if(senha.value !== repetirSenha.value){
-            valida = false;
-            this.mensagemErro(senha, 'Senha não é igual a repetir senha')
-            this.mensagemErro(repetirSenha, 'Senha não é igual a repetir senha')
-        }
-        return valid
-
     }
 
     mensagemErro(campo, msg){
