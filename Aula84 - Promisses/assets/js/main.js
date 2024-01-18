@@ -1,19 +1,10 @@
-//callback
-
-function primeira(a){
-  setTimeout(() => {
-    console.log('Sou a conexão do banco!')
-    if(a) a()
-  }, 10000);
+function gerarNumero(numeroGerado){
+  const numero = Math.floor(Math.random() * 101)
+  numeroGerado(numero)
 }
 
-function segunda(a){
-  setTimeout(() => {
-    console.log('Sou a exibição do resultado!')
-    if(a) a()
-  }, 500);
+function imprimeResultado(imprime){
+  console.log(imprime)
 }
 
-primeira(function(){
-  segunda();
-});
+gerarNumero(imprimeResultado)
