@@ -13,7 +13,7 @@ class validaFormulario{
     envioDeFormulario(e){
         e.preventDefault();
         const camposValidos = this.validarCampos();
-        const senhasValidas = this.senhasSaoValidas();
+        const senhasValidas = this.validaSenhas();
 
         if(camposValidos && senhasValidas) {
         alert('Formulário enviado.');
@@ -37,10 +37,12 @@ class validaFormulario{
             }
 
             if(campo.classList.contains('usuario')){
+                console.log(campo)
                 if(!this.validaUsuario(campo)) valid = false
             }
 
             if(campo.classList.contains('cpf')){
+                console.log(campo)
                 if(!this.validaCpf(campo)) valid = false
             }
         }
@@ -79,7 +81,7 @@ class validaFormulario{
         
 
         if(senha.value !== repetirSenha.value){
-            valida = false;
+            valid = false;
             this.mensagemErro(senha, 'Senha não é igual a repetir senha')
             this.mensagemErro(repetirSenha, 'Senha não é igual a repetir senha')
         }
