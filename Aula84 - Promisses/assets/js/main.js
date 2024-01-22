@@ -1,10 +1,10 @@
-function gerarNumero(numeroGerado){
-  const numero = Math.floor(Math.random() * 101)
-  numeroGerado(numero)
+function mostrarMensagem(resultado){
+  console.log('O resultado da operação foi: ', resultado)
 }
 
-function imprimeResultado(imprime){
-  console.log(imprime)
+function calcular(x, y, callback){
+  const result = x + y;
+  callback(result)
 }
 
-gerarNumero(imprimeResultado)
+calcular(4, 5, mostrarMensagem)
