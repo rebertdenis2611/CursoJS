@@ -14,7 +14,7 @@ function f2(callback){
     setTimeout(() =>{
         console.log('Esse execulta primeiro')
         if (callback) callback();
-    },tempo())
+    },6000)
 }
 
 f2(f2callback)
