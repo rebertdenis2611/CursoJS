@@ -21,7 +21,18 @@ class validaFormulario{
         }
     }
 
-    
+    validaSenhas(){
+        let valid = true
+        const senha = this.formulario.querySelector('.senha')
+        const repetirSenha = this.formulario.querySelector('.repetir-senha')
+        
+        if(senha.value !== repetirSenha.value){
+            valid = false;
+            this.mensagemErro(senha, 'Senha não é igual a repetir senha')
+            this.mensagemErro(repetirSenha, 'Repetir Senha não é igual a senha')
+        }
+        return valid
+    }
 
     validarCampos(){
         let valid = true
@@ -74,6 +85,7 @@ class validaFormulario{
         return true
     }
 
+<<<<<<< HEAD
     validaSenhas(){
         let valid = true
         const senha = this.formulario.querySelector('.senha')
@@ -89,6 +101,8 @@ class validaFormulario{
 
     }
 
+=======
+>>>>>>> df6b900ee00d9205e7575c78d3b3e8e823dcd83f
     mensagemErro(campo, msg){
         const div = document.createElement('div')
         div.innerHTML = msg;
