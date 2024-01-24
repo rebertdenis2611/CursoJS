@@ -1,10 +1,12 @@
-function mostrarMensagem(resultado){
-  console.log('O resultado da operação foi: ', resultado)
+function rand(min, max){
+  min *= 1000;
+  max *= 1000;
+  return Math.floor(Math.random() * (max - min) + min); 
 }
 
-function calcular(x, y, callback){
-  const result = x + y;
-  callback(result)
+function esperaAi(msg, tempo){
+  return new Promise((resolve, reject));
+  setTimeout(() => {
+    console.log(msg);
+  }, tempo)
 }
-
-calcular(4, 5, mostrarMensagem)
