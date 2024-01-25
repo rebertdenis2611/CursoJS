@@ -2,48 +2,30 @@ function rand(min, max){
   min *= 1000;
   max *= 1000;
 
-  return Math.floor(Math.random() * (max - min) + min);
-};
+  return Math.floor(Math.random() * (max - min) + min)
+}
 
-function esperaAi(msg, tempo){
+function conexaoBanco(msg, tempo){
   return new Promise((resolve, reject) => {
     setTimeout(() =>{
-      //resolve(msg);
-      reject(new Error('Não foi possível estabelecer conexão com o banco de dados!'));
-    }, tempo)
+      resolve(msg)
+    },tempo)
   })
 }
 
-esperaAi('Frase 1', rand(1,3))
+function mensagem(){
+  return 'Conexão com o banco'
+}
+
+conexaoBanco(mensagem(), rand(1,3))
   .then(resposta =>{
     console.log(resposta)
-    return esperaAi('Frase2', rand(1,3))
-  })
-  .then(resposta =>{
-    console.log(resposta)
-    return esperaAi('Frase4', rand(1,3))
-  })
-  .then(resposta =>{
-    console.log(resposta)
-    return esperaAi('Frase5', rand(1,3))
+    return conexaoBanco('Lendo informações', rand(1,3))
   })
   .then(resposta =>{
     console.log(resposta)
-    return esperaAi('Frase6', rand(1,3))
+    return conexaoBanco('Processando informações', rand(1,3))
   })
-  .then(resposta =>{
+  .catch(resposta =>{
     console.log(resposta)
-    return esperaAi('Frase7', rand(1,3))
   })
-  .then(resposta =>{
-    console.log(resposta)
-    return esperaAi('Frase8', rand(1,3))
-  })
-  .then(resposta =>{
-    console.log(resposta)
-    return esperaAi('Frase9', rand(1,3))
-  })
-  .then(resposta =>{
-    console.log('Encerrei aqui')
-  })
-  .catch('Deu erro aqui')
