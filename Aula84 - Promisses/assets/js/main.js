@@ -8,7 +8,8 @@ function rand(min, max){
 function esperaAi(msg, tempo){
   return new Promise((resolve, reject) => {
     setTimeout(() =>{
-      resolve(msg)
+      //resolve(msg);
+      reject(new Error('Não foi possível estabelecer conexão com o banco de dados!'));
     }, tempo)
   })
 }
@@ -16,7 +17,33 @@ function esperaAi(msg, tempo){
 esperaAi('Frase 1', rand(1,3))
   .then(resposta =>{
     console.log(resposta)
+    return esperaAi('Frase2', rand(1,3))
   })
-  .then(esperaAi('Frase 2', rand(1,3)){
-    onsole.log(resposta)
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase4', rand(1,3))
   })
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase5', rand(1,3))
+  })
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase6', rand(1,3))
+  })
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase7', rand(1,3))
+  })
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase8', rand(1,3))
+  })
+  .then(resposta =>{
+    console.log(resposta)
+    return esperaAi('Frase9', rand(1,3))
+  })
+  .then(resposta =>{
+    console.log('Encerrei aqui')
+  })
+  .catch('Deu erro aqui')
