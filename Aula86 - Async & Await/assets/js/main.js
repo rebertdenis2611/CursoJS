@@ -39,7 +39,7 @@ async function executa(){
     const fase1 = await esperaAi('Fase1', rand())
     console.log(fase1)
 
-    const fase2 = await esperaAi('Fase2', rand())
+    const fase2 = await esperaAi(55, rand())
     console.log(fase2)
 
     const fase3 = await esperaAi('Fase3', rand())
