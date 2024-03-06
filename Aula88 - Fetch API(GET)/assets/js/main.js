@@ -1,5 +1,6 @@
 document.addEventListener('click', e => {
     const el = e.target;
+    console.dir(el)
     const tag = el.tagName.toLowerCase();
     if(tag === 'a'){
         e.preventDefault();
