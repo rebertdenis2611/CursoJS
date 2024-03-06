@@ -1,10 +1,10 @@
 //fetch('pessoas.json')
-//   .then(resposta => resposta.json())
-//   .then(json => carregarElementosNaPagina(json))
-
+//    .then(resposta => resposta.json())
+//    .then(json => carregarElementosNaPagina(json))
+    
 axios('pessoas.json')
     .then(resposta => carregarElementosNaPagina(resposta.data))
-    
+
 function carregarElementosNaPagina(json){
     const table = document.querySelector('table')
 
