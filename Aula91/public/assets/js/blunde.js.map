@@ -1,0 +1,1 @@
+{"version":3,"file":"blunde.js","mappings":";;;;;AAAAA,KAAK,CAAC,YAAY,CAAC,C","sources":["webpack://aula91/./src/index.js"],"sourcesContent":["alert('Hello Word')"],"names":["alert"],"sourceRoot":""}
