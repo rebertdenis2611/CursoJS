@@ -1,2 +1,2 @@
-console.log("Hello Word"),console.log("Hello Word1"),console.log("Hello Word2"),console.log("Hello Word3"),console.log("Hello Word4");
+(()=>{"use strict";console.log("RebertDenis28"),console.log(10)})();
 //# sourceMappingURL=blunde.js.map
