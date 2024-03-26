@@ -1,2 +1,2 @@
-(()=>{"use strict";console.log("Rebert AndradeDenis28"),console.log(10)})();
+(()=>{"use strict";console.log(45)})();
 //# sourceMappingURL=blunde.js.map
