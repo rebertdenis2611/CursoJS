@@ -60,10 +60,10 @@ class ValidarCpf{
 
     validarCpf(){
         if(this.novoCpf() === this.cpf){
-            console.log('CPF VALIDADO')
+            console.log('CPF VALIDADO ' + this.novoCpf())
         }else{
-            console.log('OLÀ!')
+            console.log('CPF INVALIDO!')
         }
     }
 }
-const p1 = new ValidarCpf('10498988422');
+const p1 = new ValidarCpf('15022569400');

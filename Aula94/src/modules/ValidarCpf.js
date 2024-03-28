@@ -1,70 +1,46 @@
 export default class ValidarCpf{
     constructor(cpf){
-        this.cpf = cpf
-        this.validarCpf();
+        this.cpf = cpf;
+        this.gerarCpf();
     }
 
-    tratarCpf(){
+    cpfTratado(){
         const cpfLimpo = this.cpf.replace(/\D+/g, '');
-        const novoCpf = cpfLimpo.slice(0, -2);
-        return novoCpf
+        return String(cpfLimpo)
     }
-
-    primeiraVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
-        const cpfArray = Array.from(cpfNoveDigito)
-        let regressivo = cpfNoveDigito.length+1;
-        let totalCpf = cpfArray.reduce(function(ac, valor){
-            ac += valor * regressivo
-            regressivo--
-            return ac
-        },0)
-        return totalCpf
-    }   
-
-    primeiroDigito(){
-        let digito = this.primeiraVerificacao() * 10 % 11
-        if(digito === 10){
-            digito = 0 
-        }else{
-            return digito
+    
+    gerarCpf(){
+        const cpfComNove = this.cpfTratado().slice(0, -2);
+        const digito1 = this.calculoDigito(cpfComNove);
+        const digito2 = this.calculoDigito(cpfComNove + digito1);
+        const cpfNovo = cpfComNove + digito1 + digito2
+        return String(cpfNovo)
+    }
+    
+    static calculoDigito(cpfComNove){
+        const cpfArray = Array.from(cpfComNove);
+        let decrescente = cpfArray.length + 2;
+        let soma = 0;
+        for(let x of cpfArray){             
+            decrescente--
+            soma += decrescente * x
         }
-        return digito
+
+        let digito = soma * 10 % 11
+        return digito > 9 ? 0 : String(digito)
     }
 
-    segundaVerificacao(){
-        const cpfNoveDigito = this.tratarCpf();
-        const cpfArray = Array.from(cpfNoveDigito + this.primeiroDigito())  
-        let regressivo = cpfArray.length + 1;
-        let totalCpf = cpfArray.reduce(function(ac, valor){
-            ac += valor * regressivo
-            regressivo--
-            return ac
-        },0)
-        return totalCpf
+    verificaCpfValido(){
+        if(typeof this.cpf === 'undefined') return false
+        if(!(this.cpfTratado() === this.gerarCpf())) return false
+        if(this.issequencia()) return false
+        return true
+    }    
+
+    issequencia(){
+        const sequencia = this.cpf[0].repeat(this.cpfTratado().length)
+        return sequencia === this.cpfTratado();
     }
 
-    segundoDigito(){
-        let digito = this.segundaVerificacao() * 10 % 11
-        if(digito === 10){
-            digito = 0 
-        }else{
-            return digito
-        }
-        return digito
-    }
-
-    novoCpf(){
-        return this.tratarCpf() + this.primeiroDigito() + this.segundoDigito()
-    }
-
-    validarCpf(){
-        if(this.novoCpf() === this.cpf){
-            console.log('CPF VALIDADO')
-        }else{
-            console.log('OLÀ!')
-        }
-    }
 }
 
-console.log('Cehguei aqui')
