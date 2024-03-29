@@ -8,7 +8,7 @@ novoCpf.addEventListener('click', () => {
 })
 
 function gerarCpf(){
-    const gera = new GeraCPF();
+    //const gera = new GeraCPF();
     const cfpgerado = document.querySelector('.cpf-gerado')
-    cfpgerado.innerHTML = gera.geraNovoCpf()
+    cfpgerado.innerHTML = GeraCPF.geraNovoCpf()
 }
