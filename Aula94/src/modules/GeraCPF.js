@@ -1,11 +1,11 @@
 import validarCPF from './ValidarCpf';
 
 export default class GerarCPF{
-    rand(min = 100000000, max = 999999999){
+    static rand(min = 100000000, max = 999999999){
         return String(Math.floor(Math.random() * (max - min) + min));
     }
 
-    formatado(cpf){
+    static formatado(cpf){
         return(
             cpf.slice(0, 3) + '.' +
             cpf.slice(3, 6) + '.' +
@@ -14,7 +14,7 @@ export default class GerarCPF{
         )
     };
 
-    geraNovoCpf(){
+    static geraNovoCpf(){
         const cpfsemDigito = this.rand();
         const digito1 = validarCPF.calculoDigito(cpfsemDigito)
         const digito2 = validarCPF.calculoDigito(cpfsemDigito + digito1)

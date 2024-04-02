@@ -25,11 +25,10 @@ export default class ValidarCpf{
             decrescente--
             soma += decrescente * x
         }
-
         let digito = soma * 10 % 11
         return digito > 9 ? 0 : String(digito)
     }
-
+    
     verificaCpfValido(){
         if(typeof this.cpf === 'undefined') return false
         if(!(this.cpfTratado() === this.gerarCpf())) return false
