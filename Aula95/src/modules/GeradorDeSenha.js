@@ -2,20 +2,47 @@ export default class GeradorDeSenha{
     constructor(){
     }
     
-    static capturarMarcacao(){
-        const nome = document.querySelectorAll('input')
+    capturarMarcacao(){
+        const classInput = document.querySelectorAll('input')
+        const qtdCaractere = document.querySelector('.qtd-caractere')
+        const maiuscula = 'ABCDEFGHIJKLMNOPQRSTUVXWYZ'
+        const minuscula = maiuscula.toLocaleLowerCase();
+        const caractere = '!@#$%¨&*()_+=?;:<>,.|'
 
-        for(let x of nome){
-            if(x.checked && x.className === 'add-numeros'){
-                console.log('Adicionar numeros')
-                return
+        for(let qtd = 0; qtd < qtdCaractere.value; qtd++){
+            for(let x of classInput){
+                if(x.checked && x.className === 'add-numeros'){
+                    this.insereSenha(this.gerarSenha(8))
+                }
+
+                if(x.checked && x.className === 'add-letras-maiuscula'){
+                    this.insereSenha(maiuscula[this.gerarSenha(qtdCaractere.value)])
+                }
+
+                if(x.checked && x.className === 'add-letras-minuscula'){
+                    this.insereSenha(minuscula[this.gerarSenha(qtdCaractere.value)])
+                }
+
+                if(x.checked && x.className === 'add-simbolos'){
+                    this.insereSenha(caractere[this.gerarSenha(qtdCaractere.value)])
+                }
             }
-            console.log('não foi numeros')
         }
-        
+    } 
+
+    gerarSenha(max){
+        return Math.floor(Math.random() * (1 + max) + 1)
     }
 
-    gerarSenha(){
-        return Math.floor(Math.random() * (1 + 8) + 1)
+    limpaSenha(){
+        const campoSenha = document.querySelector('.senha-geradas')
+        campoSenha.innerHTML = ' '
     }
+
+    insereSenha(senha){
+        const campoSenha = document.querySelector('.senha-geradas')
+        console.log(campoSenha)
+        campoSenha.innerHTML += senha
+    }
+
 }
