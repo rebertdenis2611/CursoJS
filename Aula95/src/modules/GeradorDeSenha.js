@@ -16,7 +16,7 @@ export default class GeradorDeSenha{
                 }
 
                 if(x.checked && x.className === 'add-letras-maiuscula'){
-                    this.insereSenha(maiuscula[this.gerarSenha(qtdCaractere.value)])
+                    this.insereSenha(maiuscula[this.gerarSenha(maiuscula.length)])
                 }
 
                 if(x.checked && x.className === 'add-letras-minuscula'){
@@ -29,9 +29,10 @@ export default class GeradorDeSenha{
             }
         }
     } 
-
+    
     gerarSenha(max){
-        return Math.floor(Math.random() * (1 + max) + 1)
+        console.log(Math.floor(Math.random() * (1 + max) - 1))
+        return Math.floor(Math.random() * (1 + max) - 1)
     }
 
     limpaSenha(){
@@ -41,8 +42,7 @@ export default class GeradorDeSenha{
 
     insereSenha(senha){
         const campoSenha = document.querySelector('.senha-geradas')
-        console.log(campoSenha)
-        campoSenha.innerHTML += senha
+        campoSenha.innerHTML += senha 
     }
 
 }
