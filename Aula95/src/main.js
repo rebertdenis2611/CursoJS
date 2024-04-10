@@ -8,7 +8,9 @@ botao.addEventListener('click', (e) =>{
     mark.limpaSenha()
     mark.capturarMarcacao()
     insereSenha()
+    mark.testeResultado()
     e.preventDefault()
+
 })
 
 function insereSenha(){
