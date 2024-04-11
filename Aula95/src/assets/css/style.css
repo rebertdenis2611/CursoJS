@@ -72,9 +72,16 @@ h1{
 }
 
 .senha-geradas{
-  padding: 10px;
+  padding: 20px;
+  font-size: 1.5em;
 }
 
 .number{
   width: 50px;
+}
+
+.validado{
+  background-color: blue;
+  font-weight: bold;
+  color: white;
 }

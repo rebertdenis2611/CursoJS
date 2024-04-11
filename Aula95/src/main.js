@@ -1,20 +1,4 @@
-import css from './assets/css/style.css'
-import GeradorDeSenha from './modules/GeradorDeSenha'
+import css from './assets/css/style.css';
+import formGeraSenha from './modules/formGeraSenha';
 
-const botao = document.querySelector('.btn-gerar-cpf')
-const mark = new GeradorDeSenha()
-
-botao.addEventListener('click', (e) =>{
-    mark.limpaSenha()
-    mark.capturarMarcacao()
-    insereSenha()
-    mark.testeResultado()
-    e.preventDefault()
-
-})
-
-function insereSenha(){
-    const campoSenha = document.querySelector('.senha-geradas')
-
-}
-
+formGeraSenha();
