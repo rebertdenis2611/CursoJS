@@ -1,18 +1,20 @@
 const rand = (min, max) => Math.floor(Math.random() * (max - min) + min);
-const gerarMaiuscula = () => String.fromCharCode(rand(65, 91));
-const gerarMinuscula = () => String.fromCharCode(rand(97, 122));
-const gerarNumero = () => String.fromCharCode(rand(48, 57));
-const simbolo = '!@#$%¨&*\()_-+=-.*/,:;?|'
-const gerarSimbolo = () => simbolo[rand(1, 24)];
+const gerarMaiuscula = () => String.fromCharCode(rand(65, 90))
+const gerarMinuscula = () => String.fromCharCode(rand(97, 122))
+const gerarNumeros = () => String.fromCharCode(rand(48, 57))
+const simbolo = '!@#$%¨&*()_-+=^`~{]}[?:;><.,'
+const gerarSimbolos = () => simbolo[rand(0, 28)]
 
-export default function gerarSenha(qtd, maiuscula, minuscula, numero, simbolo){
-    qtd = Number(qtd)
-    let senhaGerada = [];
+
+export default (qtd, maiuscula, minuscula, numeros, simbolos) => {
+    qtd = Number(qtd);
+    let senhaArray = []
+
     for(let x = 0; x < qtd; x++){
-        maiuscula && senhaGerada.push(gerarMaiuscula());
-        minuscula && senhaGerada.push(gerarMinuscula());
-        numero && senhaGerada.push(gerarNumero());
-        simbolo && senhaGerada.push(gerarSimbolo());
+        maiuscula && senhaArray.push(gerarMaiuscula())
+        minuscula && senhaArray.push(gerarMinuscula())
+        numeros && senhaArray.push(gerarNumeros())
+        simbolos && senhaArray.push(gerarSimbolos())
     }
-    return senhaGerada.join('').slice(0, qtd)
+    return senhaArray.slice(0, qtd).join('');
 }

@@ -1,0 +1,7 @@
+/* Apaguei do package.json da parte de devDependece as linhas
+    "core-js": "^2.6.12",
+    "regenerator-runtime": "^0.14.1",
+    e instalei no dependencies; 
+
+    npm i core-js regenerator-runtime
+*/

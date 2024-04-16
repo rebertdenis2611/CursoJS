@@ -1,19 +1,26 @@
 import geradores from './geradores'
 
-const btn = document.querySelector('.btn-gerar-cpf')
-const inserirSenha = document.querySelector('.senha-geradas')
-const caractere = document.querySelector('.qtd-caractere');
+const inserirSenha = document.querySelector('.senha-geradas');
+const qdtCaractere = document.querySelector('.qtd-caractere');
 const chknumeros = document.querySelector('.chknumeros');
 const chkmaiuscula = document.querySelector('.chkmaiuscula');
 const chkminuscula = document.querySelector('.chkminuscula');
 const chksimbolos = document.querySelector('.chksimbolos');
+const btnGerar = document.querySelector('.btn-gerar-cpf')
 
-export default () =>{
-    btn.addEventListener('click', () =>{
-        gerarSenha()
-    })
+export default () => {
+     btnGerar.addEventListener('click', () =>{
+        inserirSenha.innerHTML = gera()
+     })
 }
 
-function gerarSenha(){
-    inserirSenha.innerHTML = geradores(caractere.value, chkmaiuscula.checked, chkminuscula.checked, chknumeros.checked, chksimbolos.checked) || 'Selecione alguma opção'
+function gera(){
+    const senha = geradores(
+        qdtCaractere.value, 
+        chknumeros.checked, 
+        chkmaiuscula.checked, 
+        chkminuscula.checked, 
+        chksimbolos.checked)
+
+    return senha || 'Quantidade ou marcação invalida'
 }
