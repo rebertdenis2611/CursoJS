@@ -4,6 +4,6 @@ module.exports = class Cachorro{
     }
 
     latir(){
-        return ` O ${this.nome} fez au au`
+        console.log(` O ${this.nome} fez au au`)
     }
 }
