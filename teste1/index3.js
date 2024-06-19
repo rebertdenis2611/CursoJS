@@ -1,8 +1,9 @@
-function testeFuncao(){
-    let nome = 'JOAO';
-    function AA(){
-        return (`Olá! meu nome é ${nome}`)
-    }
-    console.log(AA())
-};
-testeFuncao()
+const cliente = {
+   idade: 29,
+   sexo: 'M',
+   nome: 'Rebert'
+}
+
+for(let pessoa in cliente){
+   console.log(cliente[pessoa])
+}
