@@ -1,14 +1,13 @@
-
 const fs = require('fs').promises;
-const path = require('path');
-const caminhoArquivo = path.resolve(__dirname, 'teste.json')
-console.log(caminhoArquivo)
+const pasta = require("path");
+
+const caminhoFull = pasta.resolve(__dirname)
+
 const pessoas = [
-    {nome: 'Joao'},
-    {nome: 'Maria'},
-    {nome: 'Eduardo'},
-    {nome: 'Luiza'}
+    {nome: 'Rebert'},
+    {nome: 'Denis'},
+    {nome: 'Andrade'},
+    {nome: 'Silva'}
 ]
 
-const json = JSON.stringify(pessoas, '', 2)
-fs.writeFile(caminhoArquivo, json, {flag: 'w'})
+fs.writeFile("caminhoFull.json", JSON.stringify(pessoas))
