@@ -17,18 +17,18 @@ async function walk(files, rootDir){
         const stats = await fs.stat(fileFullPath);
 
         if (/\.git/g.test(fileFullPath)) continue;
-        if (/node_modules/g.test(fileFullPath)) continue;
+        if (/node_modules/g.test(fileFullPath)) ;
         if (/modelo-webpack/g.test(fileFullPath)) continue;
         
         if(stats.isDirectory()){
             readdir(fileFullPath);
-            continue
+            
         }
 
-        if (!/\.html$/g.test(fileFullPath)) continue;
-        
+        if (!/\.html$/g.test(fileFullPath)) ;
+
         console.log(fileFullPath)
     }
 };
 
-readdir(".././")
+readdir("./")
