@@ -28,7 +28,7 @@ async function leArquivo(caminho){
     return dados
 }
 
-//PARA NÃO FAZER ISSO PODE-SE CRIAR UMA NOVA FUNÇÃO PARA NÃO CRIAR A FUNÇÃO
+//PARA NÃO FAZER ISSO PODE-SE CRIAR UMA NOVA FUNÇÃO PARA NÃO usar o then e catch
 // const dadosArquivos = leArquivo(caminhoArquivo)
 //     .then(dados =>{
 //         console.log(dados)
