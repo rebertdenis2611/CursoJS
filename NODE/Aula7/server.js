@@ -10,7 +10,7 @@ app.get('/', (req, res) =>{
     res.send(`
         <form action="/" method="POST">
         NOME: <input type:"text" name="nome">
-        <button>Enviar</button>
+        <button>Teste2</button>
         </form>
         `)
 })
