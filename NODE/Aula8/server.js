@@ -15,8 +15,7 @@ app.get('/', (req, res) =>{
 
 
 app.post('/', (req, res) =>{
-    res.send('Recebi o arquivo!')
-    console.log(req.body)
+    res.send(`Seja bem vindo! ${req.body.nome}` )
 })
 
 app.get('/testes/:usuario?/:senha?', (req, res) => {
@@ -28,4 +27,5 @@ app.get('/')
 
 app.listen(port, (req, res) =>{
     console.log('Estamos escultando!')
+    console.log(`http://127.0.0.1:${port}`)
 })
