@@ -1,5 +1,5 @@
 exports.inicio = (req, res) =>{
-    res.send('Estou no home')
+    res.render('index')
 }
 
 exports.tratarPost = (req, res) =>{
